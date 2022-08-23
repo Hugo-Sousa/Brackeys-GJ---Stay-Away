@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int radius;
+    public float radius;
     public UIManager manager;
 
     public Transform socialBubble;
@@ -15,7 +15,12 @@ public class Player : MonoBehaviour
     private float noise = 0;
     public float damageRate;
     public float healRate;
+    
     public float speed;
+    public Rigidbody2D rb;
+    private Vector2 movement;
+
+    public Animator anim;
     
     void Start()
     {
@@ -26,7 +31,17 @@ public class Player : MonoBehaviour
     
     void Update()
     {
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        
+        anim.SetFloat("Horizontal", movement.x);
+        anim.SetFloat("Vertical", movement.y);
+        
         CheckEnemy();
+    }
+
+    private void FixedUpdate()
+    {
         Controller();
     }
 
@@ -71,22 +86,7 @@ public class Player : MonoBehaviour
 
     private void Controller()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.position += Vector3.up*Time.deltaTime*speed;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.position += Vector3.left*Time.deltaTime*speed;
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.position += Vector3.right*Time.deltaTime*speed;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.position += Vector3.down*Time.deltaTime*speed;
-        }
+        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
     }
     
 }
