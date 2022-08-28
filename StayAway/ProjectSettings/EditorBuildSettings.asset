@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: c58c83e22f6a6b64d9f227bb0820ba85
+  - enabled: 1
+    path: Assets/Scenes/Cafe.unity
+    guid: acde6d30a7ae0e746896ddc9466f41ea
+  - enabled: 1
+    path: Assets/Scenes/City.unity
+    guid: 27d878f52d787a644835d3458f52d8ab
+  - enabled: 1
+    path: Assets/Scenes/Convention.unity
+    guid: 664cc92fa93ac124b83d1af5aebb7101
+  - enabled: 1
+    path: Assets/Scenes/Subway.unity
+    guid: 45e43f93dc15d6545925562afd697b6c
+  - enabled: 1
+    path: Assets/Scenes/Supermarket.unity
+    guid: 2d5b67f30d373284d95351e396e17b23
+  - enabled: 1
+    path: Assets/Scenes/Manager.unity
+    guid: 4cc072c0c17615b40867f5fb562e9e7a
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: c2d036cee45ee5248a9f7fec789c97c4
+  - enabled: 1
+    path: Assets/Scenes/VictoryScreen.unity
+    guid: c2c37aea2adf0584796ad95fffe50d48
+  m_configObjects: {}
