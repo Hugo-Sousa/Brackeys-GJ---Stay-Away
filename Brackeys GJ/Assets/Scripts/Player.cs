@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -25,12 +26,17 @@ public class Player : MonoBehaviour
     void Start()
     {
         manager.SetNoiseLevel(noise);
-        socialBubble.localScale = new Vector3(radius * 2, radius * 2, 1);
+        socialBubble.localScale = new Vector3(radius * 3, radius * 3, 1);
         bubbleMat = socialBubble.gameObject.GetComponent<Renderer>();
     }
     
     void Update()
     {
+        if (noise >= 100.0f)
+        {
+            SceneManager.LoadScene("LoseScreen");
+        }
+        
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         
@@ -87,6 +93,11 @@ public class Player : MonoBehaviour
     private void Controller()
     {
         rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+    }
+
+    public void ChangeScale(float scale)
+    {
+        transform.localScale = new Vector3(scale, scale, 1);
     }
     
 }

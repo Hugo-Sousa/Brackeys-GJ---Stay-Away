@@ -13,7 +13,7 @@ public class CrowdAI : MonoBehaviour
     private bool isWaiting;
     public float speed;
 
-    void Start()
+    void Awake()
     {
         StartCoroutine(MoveTo());
     }

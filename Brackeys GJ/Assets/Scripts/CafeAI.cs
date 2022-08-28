@@ -14,19 +14,23 @@ public class CafeAI : MonoBehaviour
 
     public float waitTime;
     private float speed = 4;
+
+    private int index;
     
-    private List<int> seatsLeft;
+    private List<int> seatsLeft = new List<int>();
+
+    private void Awake()
+    {
+        StartCoroutine(CafeLine());
+    }
 
     private void Start()
     {
-        seatsLeft = new List<int>();
         seatsLeft.AddRange(Enumerable.Range(0,tableWaypoints.Length));
-        StartCoroutine(CafeLine());
     }
 
     IEnumerator CafeLine()
     {
-        int index = 0;
         while (index < line.Length)
         {
             yield return new WaitForSeconds(waitTime);
